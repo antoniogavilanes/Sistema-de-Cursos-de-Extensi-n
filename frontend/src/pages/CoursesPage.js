@@ -47,8 +47,8 @@ const CoursesPage = () => {
       {error && <p className="error">{error}</p>}
 
       <div className="cards-container">
-        {courses.map(course => (
-          <div className="card" key={course._id}>
+        {courses.map((course, index) => (
+          <div className="card" key={course._id || index}>
             <h2>{course.title}</h2>
             <p>{course.description}</p>
             <p><strong>Duración:</strong> {course.duration} horas</p>
@@ -56,6 +56,7 @@ const CoursesPage = () => {
           </div>
         ))}
       </div>
+
 
       <h2>Crear un Nuevo Curso</h2>
       <form className="create-course-form" onSubmit={handleCreateCourse}>
