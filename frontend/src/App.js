@@ -1,19 +1,18 @@
-// src/App.js
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import AuthForm from './components/AuthForm';
-import Courses from './components/Courses';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import CoursesPage from './pages/CoursesPage';
+import LoginPage from './pages/LoginPage';
+import RegisterPage from './pages/RegisterPage';
 
-const App = () => {
+function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<AuthForm isRegister={false} />} /> {/* Iniciar sesión */}
-        <Route path="/register" element={<AuthForm isRegister={true} />} /> {/* Registrar */}
-        <Route path="/courses" element={<Courses />} /> {/* Cursos */}
+        <Route path="/" element={<LoginPage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/courses" element={<CoursesPage />} />
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;

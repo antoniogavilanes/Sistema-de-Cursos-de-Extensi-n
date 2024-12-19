@@ -126,5 +126,22 @@
   .register-link button:hover {
     background-color: #007bb5;
   }
+
+  /* Estilos para el símbolo de carga */
+.loading {
+  font-size: 20px;
+  color: #007bff;
+  font-weight: bold;
+}
+
+/* Estilos para el mensaje de éxito */
+.success-message {
+  font-size: 18px;
+  color: green;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+
   
   

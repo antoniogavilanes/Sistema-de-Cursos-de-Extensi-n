@@ -1,6 +1,5 @@
 const mongoose = require('mongoose');
 
-// Definimos el esquema para Course
 const courseSchema = new mongoose.Schema({
   title: {
     type: String,
@@ -25,7 +24,6 @@ const courseSchema = new mongoose.Schema({
   },
 });
 
-// Creamos el modelo
 const Course = mongoose.model('Course', courseSchema);
 
 module.exports = Course;
