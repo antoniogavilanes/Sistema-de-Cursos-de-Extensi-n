@@ -1,25 +1,27 @@
 const express = require('express');
 const Course = require('../models/Course');
-const authMiddleware = require('../middlewares/auth');
-
 const router = express.Router();
 
-router.post('/courses', authMiddleware, async (req, res) => {
-  const { title, description, price } = req.body;
+// Obtener todos los cursos
+router.get('/', async (req, res) => {
   try {
-    const course = new Course({ title, description, price, owner: req.user.id });
-    await course.save();
-    res.status(201).send(course);
+    const courses = await Course.find();
+    res.json(courses);
   } catch (err) {
-    res.status(400).send(err.message);
+    res.status(500).json({ message: 'Error al obtener los cursos', error: err });
   }
 });
 
-router.get('/courses', async (req, res) => {
-  const { search } = req.query;
-  const filter = search ? { title: new RegExp(search, 'i') } : {};
-  const courses = await Course.find(filter).populate('owner', 'name');
-  res.json(courses);
+// Crear un nuevo curso
+router.post('/', async (req, res) => {
+  const { title, description, duration, instructor } = req.body;
+  try {
+    const newCourse = new Course({ title, description, duration, instructor });
+    await newCourse.save();
+    res.status(201).json({ message: 'Curso creado', course: newCourse });
+  } catch (err) {
+    res.status(500).json({ message: 'Error al crear el curso', error: err });
+  }
 });
 
 module.exports = router;
