@@ -1,12 +1,11 @@
 // src/api.js
 import axios from 'axios';
 
-const API_URL = 'http://localhost:3000/api'; // Cambia esto si tu API está en otro puerto
-
+// Cambia esta URL con la del backend
 const api = axios.create({
-  baseURL: API_URL,
+  baseURL: 'http://localhost:3000/api', // URL del backend
   headers: {
-    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${localStorage.getItem('token')}`,
   },
 });
 
