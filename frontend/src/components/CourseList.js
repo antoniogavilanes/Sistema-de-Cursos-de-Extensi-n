@@ -1,18 +1,16 @@
 import React from "react";
 
 function CourseList({ courses }) {
+  if (courses.length === 0) {
+    return <p>No hay cursos disponibles.</p>;
+  }
+
   return (
-    <div>
-      <h3>Listado de Cursos</h3>
-      <ul>
-        {courses.map((course) => (
-          <li key={course._id}>
-            <h4>{course.title}</h4>
-            <p>{course.description}</p>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <ul>
+      {courses.map((course) => (
+        <li key={course._id}>{course.title}</li>
+      ))}
+    </ul>
   );
 }
 
