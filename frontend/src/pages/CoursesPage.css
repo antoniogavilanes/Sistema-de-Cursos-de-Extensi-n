@@ -1,0 +1,59 @@
+.courses-page {
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  .cards-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    width: calc(33% - 20px);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .card h2 {
+    margin: 0 0 10px;
+    font-size: 1.5rem;
+  }
+  
+  .card p {
+    margin: 5px 0;
+  }
+  
+  .create-course-form {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .create-course-form input,
+  .create-course-form textarea,
+  .create-course-form button {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+  
+  .create-course-form button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .create-course-form button:hover {
+    background-color: #0056b3;
+  }
+  
+  .error {
+    color: red;
+    font-weight: bold;
+  }
+  
